@@ -1,0 +1,74 @@
+1: #Brendan L. Stringer 
+2: #CS 021
+3: #futures.py Text 5.19
+4: 
+5: #This program will future worth of some money if the user inputs 
+6: #P = present Value 
+7: #i = monthly intrest rate 
+8: #t = number of months 
+9: #using this function 
+10: #F = P * ( 1 + i ) ** t
+11: 
+12: #####----- DEFINE FUNCTIONS -----#####
+13: 
+14: #get user input
+15: def getInput(): 
+16: 
+17: 	P = float(input('Please enter the preset worth: $'))
+18: 	i = float(input('Please enter the interest rate: %'))
+19: 	t = float(input('Please enter the number of months: '))
+20: 
+21: 	return P,i,t
+22: 
+23: #this function will validate the user input for each value
+24: def validateInput(P,i,t): 
+25: 
+26: 	#validate P
+27: 	while P <= 0: 
+28: 
+29: 		print('The present worth must be greater than zero.')
+30: 		P = float(input('Please enter the present worth: $'))
+31: 
+32: 	#validte i 
+33: 	while i < 0 or i > 100: 
+34: 
+35: 		print('Your interest rate must be between 0 and 100 percent')
+36: 		i = float(input('Please enter the interest rate: %'))
+37: 
+38: 	#validate t
+39: 	while t < 0: 
+40: 
+41: 		print('The number of months must be greater than zero')
+42: 		t = float(input('Please enter the number of months: '))
+43: 
+44: 	return P,i,t
+45: 
+46: #this will print the results to the user
+47: def printResults(P,i,t,F):
+48: 	print('Your account information:')
+49: 	print('Present Value: $', format(P, '0.2f'))
+50: 	print('Interest Rate: ', format(i, '0.1f'), '%')
+51: 	print('Number of Months ', format(t, '0.0f'))
+52: 	print('The future value of your account is: $', format(F, '0.2f'))
+53: 
+54: 
+55: #the main function will perform all the functions
+56: def main():
+57: 
+58: 	#Get the user input
+59: 	P,i,t = getInput()
+60: 
+61: 	#Validate the user input
+62: 	P,i,t = validateInput(P,i,t)
+63: 
+64: 	#Perform the Calculations
+65: 	F = P * (1 + (i/100)) ** t
+66: 
+67: 	#print the results 
+68: 	printResults(P,i,t,F)
+69: 
+70: #####----- RUN MAIN -----#####
+71: 
+72: #run the main function
+73: main()
+74: 
