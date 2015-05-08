@@ -16,6 +16,7 @@ class wordGuess:
 
 		# Create the main window
 		self.main_window = tkinter.Tk()
+		self.main_window.wm_title('Guess The Word')
 
 		# Create the frames
 		self.word_frame = tkinter.Frame(self.main_window)
@@ -39,7 +40,7 @@ class wordGuess:
 
 		# Create the guess lable and entry 
 		self.guess_label = tkinter.Label(self.input_frame, text='Your guess:')
-		self.guess_entry = tkinter.Entry(self.input_frame, width=50)
+		self.guess_entry = tkinter.Entry(self.input_frame, width=30)
 
 		# Pack the input frame 
 		self.guess_label.pack(side='left')
